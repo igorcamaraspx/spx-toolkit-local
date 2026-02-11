@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SPX Toolkit (Local)</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="top__left">
+        <div class="badge">SPX Toolkit</div>
+        <div class="muted">Local • GitHub Pages • localStorage</div>
+      </div>
+
+      <div class="top__right">
+        <button id="btnConfig" class="btn">Config</button>
+        <button id="btnClear" class="btn btn--ghost">Limpar</button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="card">
+        <div class="row">
+          <select id="action" class="input"></select>
+          <button id="btnRun" class="btn btn--primary">Rodar</button>
+        </div>
+
+        <textarea id="input" class="input textarea" placeholder="Cole BRs / SPX / TO / VT (um por linha)"></textarea>
+
+        <div class="row">
+          <button id="btnCopy" class="btn">Copiar CSV</button>
+          <button id="btnDownload" class="btn">Baixar CSV</button>
+        </div>
+
+        <div id="log" class="log"></div>
+      </section>
+
+      <section class="card">
+        <div class="row row--between">
+          <h2 class="h2">Resultado</h2>
+          <div class="muted" id="meta"></div>
+        </div>
+        <div class="tblwrap" id="tableWrap"></div>
+      </section>
+    </main>
+
+    <dialog id="dlg" class="dlg">
+      <form method="dialog" class="dlg__box">
+        <div class="dlg__hdr">
+          <b>Config</b>
+          <button class="btn btn--ghost" value="close">Fechar</button>
+        </div>
+
+        <div class="dlg__body">
+          <label class="lbl">Station name</label>
+          <input id="cfgStation" class="input" />
+
+          <label class="lbl">Headers JSON (sem cookie)</label>
+          <textarea id="cfgHeaders" class="input textarea" style="min-height:180px"></textarea>
+
+          <div class="muted small">
+            Dica: use headers do fetch do browser (x-csrftoken, x-api-source etc). Alguns headers proibidos serão ignorados.
+          </div>
+
+          <div class="row row--end">
+            <button id="btnSaveCfg" class="btn btn--primary" value="close">Salvar</button>
+          </div>
+        </div>
+      </form>
+    </dialog>
+
+    <footer class="foot">
+      <div class="muted small">
+        Você precisa estar logado no SPX no mesmo navegador. Se der erro de CORS, não tem como ler respostas sem extensão.
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
